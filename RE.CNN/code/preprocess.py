@@ -87,7 +87,6 @@ def mapDist(dist, dist_map, min_dist=-30, max_dist=30):
 
 ####################################   read training and testing data   #####################################
 outputFilePath = 'data/sem-relations.pkl.gz'
-embeddingsPath = 'data/embeddings/wiki_extvec.gz' # download English word embeddings from here https://www.cs.york.ac.uk/nlp/extvec/ or https://www.cs.york.ac.uk/nlp/extvec/wiki_extvec.gz
 files = ['data/train.txt', 'data/test.txt']
 words = {}
 max_sent_len = [0,0]
@@ -107,6 +106,7 @@ print("Total number of words appears: ", len(words))
 
 ################################  word embedding  ###################################
 # :: Read in word embeddings ::
+embeddingsPath = 'data/embeddings/wiki_extvec.gz' # download English word embeddings from here https://www.cs.york.ac.uk/nlp/extvec/ or https://www.cs.york.ac.uk/nlp/extvec/wiki_extvec.gz
 word2Idx = {}
 wordEmbeddings = []
 

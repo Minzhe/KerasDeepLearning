@@ -1,6 +1,7 @@
 ##########################################################################################################
-###                                         CNN.py                                              ###
+###                                              CNN.py                                                ###
 ##########################################################################################################
+# https://github.com/UKPLab/deeplearning4nlp-tutorial
 """
 This is a CNN for relation classification within a sentence. The architecture is based on:
 
@@ -90,13 +91,13 @@ print("Dimension Embeddings: ", embeddings.shape)
 ##################  CNN model  #################
 # embedding layers
 words_input = Input(shape=(max_sent_len,), dtype='int32', name='words_input')
-words = Embedding(embeddings.shape[0], embeddings.shape[1], weights=[embeddings], trainable=False)(words_input)
+words = Embedding(input_dim=embeddings.shape[0], output_dim=embeddings.shape[1], weights=[embeddings], trainable=False) (words_input)
 
 dist1_input = Input(shape=(max_sent_len,), dtype='int32', name='dist1_input')
-dist1 = Embedding(max_pos, pos_dims)(dist1_input)
+dist1 = Embedding(input_dim=max_pos, output_dim=pos_dims, trainable=True) (dist1_input)
 
 dist2_input = Input(shape=(max_sent_len,), dtype='int32', name='dist2_input')
-dist2 = Embedding(max_pos, pos_dims)(dist2_input)
+dist2 = Embedding(input_dim=max_pos, output_dim=pos_dims, trainable=True) (dist2_input)
 
 output = concatenate([words, dist1, dist2])
 
